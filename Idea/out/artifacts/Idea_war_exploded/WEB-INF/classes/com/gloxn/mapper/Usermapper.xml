@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gloxn.mapper.Usermapper">
+  <select id="find"  resultType="com.gloxn.bean.login" >
+      select  * from login
+  </select>
+    <select id="findAll" resultType="com.gloxn.bean.login" parameterType="String">
+        select * from login where name=#{0} AND  password=#{1}
+
+    </select>
+    <select id="All" resultType="com.gloxn.bean.Menv">
+        select * from menv where pid=0
+
+    </select>
+    <select id="chid" resultType="com.gloxn.bean.Menv" parameterType="int">
+        select * from menv where pid=#{0}
+
+    </select>
+    <select id="selByPage" resultType="com.gloxn.bean.Role" parameterType="int">
+        select   * from role  limit #{0},#{1}
+    </select>
+    <select id="selCount" resultType="int">
+        select count(*) from role
+    </select>
+</mapper>
